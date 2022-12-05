@@ -106,6 +106,8 @@ namespace Windows.UI.Xaml.Automation.Peers
 
 		public AutomationPeer GetLabeledBy() => GetLabeledByCore();
 
+		protected internal IRawElementProviderSimple ProviderFromPeer(AutomationPeer peer) => new IRawElementProviderSimple(peer);
+
 		#endregion
 
 		#region Overrides
