@@ -113,6 +113,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml
 		[DataRow(typeof(Microsoft.UI.Xaml.Controls.SplitButton), 15)]
 		[DataRow(typeof(Microsoft.UI.Xaml.Controls.TabView), 15)]
 		[DataRow(typeof(Microsoft.UI.Xaml.Controls.Primitives.TabViewListView), 15)]
+		[DataRow(typeof(Microsoft.UI.Xaml.Controls.TextCommandBarFlyout), 15)]
 		[DataRow(typeof(Microsoft.UI.Xaml.Controls.TreeView), 15)]
 		[DataRow(typeof(Microsoft.UI.Xaml.Controls.TwoPaneView), 15)]
 		[DataRow("SamplesApp.Windows_UI_Xaml.Clipping.XamlButtonWithClipping_Scrollable", 15)]
