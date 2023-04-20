@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls;
 
-#if !HAS_UNO || __ANDROID__ || __IOS__ || __MACOS__
+#if !HAS_UNO || __ANDROID__ || __IOS__ || __MACOS__ || __WASM__
 [TestClass]
 [RunsOnUIThread]
 public class Given_WebView
@@ -21,7 +21,7 @@ public class Given_WebView
 		Assert.AreEqual("https://bing.com", uri.OriginalString);
 	}
 
-#if __ANDROID__ || __IOS__ || __MACOS__
+#if __ANDROID__ || __IOS__ || __MACOS__ || __WASM__
 	[TestMethod]
 	public void When_NavigateWithHttpRequestMessage()
 	{

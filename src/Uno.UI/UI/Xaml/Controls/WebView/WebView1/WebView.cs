@@ -12,8 +12,8 @@ using System.Threading;
 
 namespace Windows.UI.Xaml.Controls;
 
-#if NET461 || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-[Uno.NotImplemented("NET461", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
+#if NET461 || __SKIA__ || __NETSTD_REFERENCE__
+[Uno.NotImplemented("NET461", "__SKIA__", "__NETSTD_REFERENCE__")]
 #endif
 public partial class WebView : Control, IWebView
 {
