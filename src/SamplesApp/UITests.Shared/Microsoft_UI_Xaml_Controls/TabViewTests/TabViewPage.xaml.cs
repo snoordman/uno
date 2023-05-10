@@ -294,7 +294,7 @@ namespace MUXControlsTestApp
 			e.Data.RequestedOperation = DataPackageOperation.Move;
 		}
 
-		private void OnTabStripDragOver(object sender, DragEventArgs e)
+		private void OnTabStripDragOver(object sender, Windows.UI.Xaml.DragEventArgs e)
 		{
 			if (e.DataView.Properties.ContainsKey(DataIdentifier))
 			{
@@ -302,14 +302,15 @@ namespace MUXControlsTestApp
 			}
 		}
 
-		private void OnTabStripDrop(object sender, DragEventArgs e)
+		private void OnTabStripDrop(object sender, Windows.UI.Xaml.DragEventArgs e)
 		{
 			// This event is called when we're dragging between different TabViews
 			// It is responsible for handling the drop of the item into the second TabView
 
-			object obj;
-			object objOriginTabView;
-			if (e.DataView.Properties.TryGetValue(DataIdentifier, out obj) && e.DataView.Properties.TryGetValue(DataTabView, out objOriginTabView))
+			object obj = null;
+			object objOriginTabView = null;
+			if (e.DataView.Properties.TryGetValue(DataIdentifier, out obj) &&
+				e.DataView.Properties.TryGetValue(DataTabView, out objOriginTabView))
 			{
 				// TODO - BUG: obj should never be null, but occassionally is. Why?
 				if (obj == null || objOriginTabView == null)
