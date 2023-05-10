@@ -194,7 +194,7 @@
                             IsHorizontalRailEnabled="False"
                             IsHorizontalScrollChainingEnabled="False"
                             IsVerticalRailEnabled="False"
-                            IsVerticalScrollChainingEnabled="{False"
+                            IsVerticalScrollChainingEnabled="False"
                             TabNavigation="{TemplateBinding TabNavigation}"
                             VerticalScrollBarVisibility="Disabled"
                             VerticalScrollMode="Disabled"
