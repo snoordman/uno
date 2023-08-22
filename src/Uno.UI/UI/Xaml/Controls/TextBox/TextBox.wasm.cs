@@ -210,7 +210,7 @@ namespace Windows.UI.Xaml.Controls
 			var enterKeyHintValue = enterKeyHint switch
 			{
 				EnterKeyHint.Default => "",
-				_ when Enum.IsDefined(typeof(EnterKeyHint), enterKeyHint) => enterKeyHint.ToString("g").ToLowerInvariant(),
+				_ when Enum.IsDefined(typeof(EnterKeyHint), enterKeyHint) => enterKeyHint.ToString().ToLowerInvariant(),
 				_ => throw new ArgumentOutOfRangeException($"Invalid value of EnterKeyHint ({enterKeyHint})"),
 			};
 
