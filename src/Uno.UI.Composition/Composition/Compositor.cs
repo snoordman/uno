@@ -156,13 +156,13 @@ namespace Microsoft.UI.Composition
 			=> new CompositionNineGridBrush(this);
 
 		public CompositionBackdropBrush CreateBackdropBrush()
-			=> new CompositionBackdropBrush();
+			=> new CompositionBackdropBrush(this);
 
 		public CompositionEffectFactory CreateEffectFactory(IGraphicsEffect graphicsEffect)
-			=> new CompositionEffectFactory(graphicsEffect);
+			=> new CompositionEffectFactory(this, graphicsEffect);
 
 		public CompositionEffectFactory CreateEffectFactory(IGraphicsEffect graphicsEffect, IEnumerable<string> animatableProperties)
-			=> new CompositionEffectFactory(graphicsEffect, animatableProperties);
+			=> new CompositionEffectFactory(this, graphicsEffect, animatableProperties);
 
 		internal void InvalidateRender() => InvalidateRenderPartial();
 
