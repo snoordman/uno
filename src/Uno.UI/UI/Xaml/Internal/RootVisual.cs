@@ -137,8 +137,35 @@ namespace Uno.UI.Xaml.Core
 		internal static void NotifyFocusChanged()
 			=> _canUnFocusOnNextLeftPointerRelease = false;
 
-		private static void ProcessPointerDown(PointerRoutedEventArgs args)
+#if !UNO_HAS_MANAGED_POINTERS
+		private ReRouted? _reRoutedDown;
+		private readonly record struct ReRouted(PointerRoutedEventArgs Args, UIElement From, UIElement To);
+
+		internal void ReRoutePointerDownEvent(PointerRoutedEventArgs args, UIElement from, UIElement to)
+			=> _reRoutedDown = new ReRouted(args, from, to);
+#endif
+
+		private void ProcessPointerDown(PointerRoutedEventArgs args)
 		{
+#if !UNO_HAS_MANAGED_POINTERS
+			if (_reRoutedDown is { } reRouted)
+			{
+				_reRoutedDown = null;
+				if (reRouted.Args == args)
+				{
+					// Clean the args before raising it again, and also change the OriginalSource to reflect the updated target.
+					args.Reset(canBubbleNatively: false);
+					args.OriginalSource = reRouted.To;
+
+					// Raise the event to the target
+					// Note: 
+					reRouted.To.OnPointerDown(args);
+					
+					return; // The event is going to come back to us
+				}
+			}
+#endif
+
 			if (!args.Handled
 				&& args.GetCurrentPoint(null).Properties.PointerUpdateKind is PointerUpdateKind.LeftButtonPressed)
 			{
