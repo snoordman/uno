@@ -160,7 +160,7 @@ namespace Uno.UI.Xaml.Core
 					// Raise the event to the target
 					// Note: 
 					reRouted.To.OnPointerDown(args);
-					
+
 					return; // The event is going to come back to us
 				}
 			}
