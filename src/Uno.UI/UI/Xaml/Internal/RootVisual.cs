@@ -145,7 +145,7 @@ namespace Uno.UI.Xaml.Core
 			=> _reRoutedDown = new ReRouted(args, from, to);
 #endif
 
-		private void ProcessPointerDown(PointerRoutedEventArgs args)
+		internal void ProcessPointerDown(PointerRoutedEventArgs args)
 		{
 #if !UNO_HAS_MANAGED_POINTERS
 			if (_reRoutedDown is { } reRouted)
