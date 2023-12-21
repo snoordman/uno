@@ -46,7 +46,7 @@ internal partial class InputManager
 	partial void InjectPointerRemoved(PointerEventArgs args)
 		=> Pointers.InjectPointerRemoved(args);
 
-	internal class PointerManager
+	partial class PointerManager
 	{
 		// TODO: Use pointer ID for the predicates
 		private static readonly StalePredicate _isOver = new(e => e.IsPointerOver, "IsPointerOver");
