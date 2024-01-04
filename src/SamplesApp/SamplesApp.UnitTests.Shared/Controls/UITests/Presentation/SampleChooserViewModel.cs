@@ -34,6 +34,8 @@ using Windows.Graphics.Display;
 using Uno.UI.Extensions;
 using Microsoft.UI.Dispatching;
 using Private.Infrastructure;
+using Uno.UI.RuntimeTests;
+using System.Reflection.Metadata;
 
 namespace SampleControl.Presentation
 {
@@ -502,7 +504,7 @@ namespace SampleControl.Presentation
 				await OpenRuntimeTests(ct);
 
 				if (ContentPhone is FrameworkElement fe
-					&& fe.FindName("UnitTestsRootControl") is Uno.UI.Samples.Tests.UnitTestsControl unitTests)
+					&& fe.FindName("UnitTestsRootControl") is UnitTestsControl unitTests)
 				{
 					await Task.Run(() => unitTests.RunTests(ct, UnitTestEngineConfig.Default));
 
