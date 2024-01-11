@@ -26,7 +26,6 @@ namespace Private.Infrastructure
 	{
 		public static class WindowHelper
 		{
-			private static Microsoft.UI.Xaml.Window _currentTestWindow;
 			private static UIElement _originalWindowContent;
 
 			public static XamlRoot XamlRoot { get; set; }
@@ -35,20 +34,13 @@ namespace Private.Infrastructure
 
 			public static Microsoft.UI.Xaml.Window CurrentTestWindow
 			{
-				get
-				{
-					if (_currentTestWindow is null)
-					{
-						throw new InvalidOperationException("Current test window not set.");
-					}
-					return _currentTestWindow;
-				}
-				set => _currentTestWindow = value;
+				get => UnitTestsUIContentHelper.CurrentTestWindow;
+				set => UnitTestsUIContentHelper.CurrentTestWindow = value;
 			}
 
 			public static bool UseActualWindowRoot
 			{
-				get => UnitTestsUIContentHelper.UseActualWindowRoot; 
+				get => UnitTestsUIContentHelper.UseActualWindowRoot;
 				set => UnitTestsUIContentHelper.UseActualWindowRoot = value;
 			}
 
