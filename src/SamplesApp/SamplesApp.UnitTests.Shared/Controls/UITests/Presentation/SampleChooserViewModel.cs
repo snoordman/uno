@@ -12,11 +12,9 @@ using Uno.UI.Samples.Controls;
 using Uno.UI.Samples.Entities;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Globalization;
-using Windows.UI.Core;
 using Windows.Storage;
 using Microsoft.UI.Xaml;
 using System.IO;
-using Windows.UI.Popups;
 using Uno.Extensions;
 using Uno.UI.Samples.Tests;
 
@@ -32,7 +30,6 @@ using Microsoft.UI.Xaml.Controls;
 using Windows.Graphics.Imaging;
 using Windows.Graphics.Display;
 using Uno.UI.Extensions;
-using Microsoft.UI.Dispatching;
 using Private.Infrastructure;
 
 namespace SampleControl.Presentation
@@ -108,9 +105,7 @@ namespace SampleControl.Presentation
 			// Disable all pooling so that controls get collected quickly.
 			Microsoft.UI.Xaml.FrameworkTemplatePool.IsPoolingEnabled = false;
 #endif
-#if WINAPPSDK
 			UseFluentStyles = true;
-#endif
 			InitializeCommands();
 			ObserveChanges();
 

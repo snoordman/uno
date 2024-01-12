@@ -18,13 +18,10 @@ using WEX.TestExecution;
 using WEX.TestExecution.Markup;
 using WEX.Logging.Interop;
 #else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 #endif
 
 using SplitButton = Microsoft/* UWP don't rename */.UI.Xaml.Controls.SplitButton;
 using ToggleSplitButton = Microsoft/* UWP don't rename */.UI.Xaml.Controls.ToggleSplitButton;
-using Uno.UI.RuntimeTests.Helpers;
 using Microsoft.UI.Xaml.Media;
 using Private.Infrastructure;
 using Uno.UI.RuntimeTests;
@@ -95,15 +92,12 @@ namespace Microsoft.UI.Xaml.Tests.MUXControls.ApiTests
 #endif
 		public void VerifyFontFamilyForChevron()
 		{
-			using (StyleHelper.UseFluentStyles())
-			{
-				var splitButton = new SplitButton();
-				TestServices.WindowHelper.WindowContent = splitButton;
+			var splitButton = new SplitButton();
+			TestServices.WindowHelper.WindowContent = splitButton;
 
-				var secondayButton = splitButton.GetTemplateChild("SecondaryButton");
-				var font = ((secondayButton as Button).Content as TextBlock).FontFamily;
-				Verify.AreEqual((FontFamily)Application.Current.Resources["SymbolThemeFontFamily"], font);
-			}
+			var secondayButton = splitButton.GetTemplateChild("SecondaryButton");
+			var font = ((secondayButton as Button).Content as TextBlock).FontFamily;
+			Verify.AreEqual((FontFamily)Application.Current.Resources["SymbolThemeFontFamily"], font);
 		}
 	}
 
