@@ -18,7 +18,7 @@ internal class GtkDisplayInformationExtension : IDisplayInformationExtension
 	public GtkDisplayInformationExtension(object owner)
 	{
 		_displayInformation = (DisplayInformation)owner;
-		GtkHost.Current!.MainWindowShown += GtkDisplayInformationExtension_MainWindowShown;
+		GtkHost.RegisterCurrent(host => host.MainWindowShown += GtkDisplayInformationExtension_MainWindowShown);
 		_dpiHelper = new DpiHelper();
 	}
 

@@ -1,6 +1,9 @@
 ﻿#nullable enable
 
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using GLib;
 using Gtk;
 using Uno.Foundation.Logging;
 using Uno.UI.Runtime.Skia.Gtk.Extensions.Helpers;
@@ -23,6 +26,7 @@ namespace Uno.UI.Runtime.Skia.Gtk
 
 		[ThreadStatic] private static bool _isDispatcherThread;
 		[ThreadStatic] private static GtkHost? _current;
+		[ThreadStatic] private static List<Action<GtkHost>>? _currentReadyCallbacks;
 
 		static GtkHost() => GtkExtensionsRegistrar.Register();
 
@@ -37,9 +41,30 @@ namespace Uno.UI.Runtime.Skia.Gtk
 		{
 			_current = this;
 			_appBuilder = appBuilder;
+
+			if (_currentReadyCallbacks is { } callbacks)
+			{
+				foreach (var callback in callbacks)
+				{
+					callback(this);
+				}
+				_currentReadyCallbacks = null;
+			}
 		}
 
 		internal static GtkHost? Current => _current;
+
+		internal static void RegisterCurrent(Action<GtkHost> callback)
+		{
+			if (_current is GtkHost current)
+			{
+				callback(current);
+			}
+			else
+			{
+				(_currentReadyCallbacks ??= new List<Action<GtkHost>>()).Add(callback);
+			}
+		}
 
 		internal UnoGtkWindow? MainWindow { get; private set; }
 
