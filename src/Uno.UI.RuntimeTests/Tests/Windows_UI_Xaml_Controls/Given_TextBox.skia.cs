@@ -710,7 +710,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			await WindowHelper.WaitForIdle();
 			Assert.AreEqual(sv.ScrollableWidth, sv.HorizontalOffset);
 
-			for (var i = 0; i < 6; i++)
+			for (var i = 0; i < 7; i++)
 			{
 				SUT.SafeRaiseEvent(UIElement.KeyDownEvent, new KeyRoutedEventArgs(SUT, VirtualKey.Left, VirtualKeyModifiers.None));
 				await WindowHelper.WaitForIdle();
@@ -922,7 +922,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(10, SUT.SelectionStart);
 			Assert.AreEqual(0, SUT.SelectionLength);
 
-			mouse.MoveBy(-50, 0);
+			mouse.MoveBy(-51, 0);
 
 			Assert.AreEqual(1, SUT.SelectionStart);
 			Assert.AreEqual(9, SUT.SelectionLength);
@@ -1188,7 +1188,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(10, SUT.SelectionStart);
 			Assert.AreEqual(0, SUT.SelectionLength);
 
-			mouse.MoveBy(-50, 0);
+			mouse.MoveBy(-51, 0);
 			await WindowHelper.WaitForIdle();
 
 			Assert.AreEqual(1, SUT.SelectionStart);
@@ -1249,7 +1249,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(10, SUT.SelectionStart);
 			Assert.AreEqual(0, SUT.SelectionLength);
 
-			mouse.MoveBy(-50, 0);
+			mouse.MoveBy(-51, 0);
 			await WindowHelper.WaitForIdle();
 
 			Assert.AreEqual(1, SUT.SelectionStart);
@@ -1296,7 +1296,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(10, SUT.SelectionStart);
 			Assert.AreEqual(0, SUT.SelectionLength);
 
-			mouse.MoveBy(-50, 0);
+			mouse.MoveBy(-51, 0);
 			await WindowHelper.WaitForIdle();
 
 			Assert.AreEqual(1, SUT.SelectionStart);
@@ -1354,7 +1354,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(10, SUT.SelectionStart);
 			Assert.AreEqual(0, SUT.SelectionLength);
 
-			mouse.MoveBy(-50, 0);
+			mouse.MoveBy(-51, 0);
 			await WindowHelper.WaitForIdle();
 
 			Assert.AreEqual(1, SUT.SelectionStart);
@@ -1406,7 +1406,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(10, SUT.SelectionStart);
 			Assert.AreEqual(0, SUT.SelectionLength);
 
-			mouse.MoveBy(-50, 0);
+			mouse.MoveBy(-51, 0);
 			await WindowHelper.WaitForIdle();
 
 			Assert.AreEqual(1, SUT.SelectionStart);
@@ -2095,7 +2095,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(12, SUT.SelectionStart);
 			Assert.AreEqual(6, SUT.SelectionLength);
 
-			mouse.MoveBy(-40, 10);
+			mouse.MoveBy(-41, 10);
 			mouse.Release();
 			await WindowHelper.WaitForIdle();
 
@@ -2115,7 +2115,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 			Assert.AreEqual(22, SUT.SelectionStart);
 			Assert.AreEqual(5, SUT.SelectionLength);
 
-			mouse.MoveBy(40, -10);
+			mouse.MoveBy(41, -10);
 			mouse.Release();
 			await WindowHelper.WaitForIdle();
 
