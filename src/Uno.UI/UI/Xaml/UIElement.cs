@@ -502,7 +502,7 @@ namespace Microsoft.UI.Xaml
 		}
 
 		[NotImplemented]
-		protected virtual AutomationPeer OnCreateAutomationPeer() => new AutomationPeer();
+		protected internal virtual AutomationPeer OnCreateAutomationPeer() => new AutomationPeer();
 
 		internal AutomationPeer OnCreateAutomationPeerInternal() => OnCreateAutomationPeer();
 
