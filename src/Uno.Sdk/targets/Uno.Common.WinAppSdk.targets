@@ -7,6 +7,11 @@
 		<EnableCoreMrtTooling Condition=" $(EnableCoreMrtTooling) == '' AND '$(BuildingInsideVisualStudio)' != 'true' ">false</EnableCoreMrtTooling>
 		<EnableMsixTooling Condition=" $(EnableMsixTooling) == '' ">true</EnableMsixTooling>
 		<EnableWindowsTargeting Condition=" $(EnableWindowsTargeting) == '' ">true</EnableWindowsTargeting>
+
+		<EnableDefaultWindowsItems>false</EnableDefaultWindowsItems>
+		<WindowsProjectFolder Condition=" '$(WindowsProjectFolder)' == '' ">$(PlatformsProjectFolder)Windows\</WindowsProjectFolder>
+		<WindowsProjectFolder>$([MSBuild]::EnsureTrailingSlash('$(WindowsProjectFolder)'))</WindowsProjectFolder>
+		<WindowsProjectFolder Condition=" !Exists('$(WindowsProjectFolder)') ">$([MSBuild]::EnsureTrailingSlash('Windows'))</WindowsProjectFolder>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$(SingleProject)!='true' and $(OutputType)=='WinExe'">
