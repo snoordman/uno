@@ -231,6 +231,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 #if __IOS__
 		[TestMethod]
 		[RunsOnUIThread]
+		[UnoWorkItem("https://github.com/unoplatform/uno/issues/15263")]
 		public async Task When_App_Theme_Dark_Native_Flyout_Theme()
 		{
 			using var _ = ThemeHelper.UseDarkTheme();
@@ -239,6 +240,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 
 		[TestMethod]
 		[RunsOnUIThread]
+		[UnoWorkItem("https://github.com/unoplatform/uno/issues/15263")]
 		public async Task When_App_Theme_Light_Native_Flyout_Theme() => await When_Native_Flyout_Theme(UIKit.UIUserInterfaceStyle.Light);
 
 		private async Task When_Native_Flyout_Theme(UIKit.UIUserInterfaceStyle expectedStyle)
